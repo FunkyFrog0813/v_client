@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import { Link } from 'react-router-dom'
-import pagination from '../pagination';
 
 const Search=()=>{
     const [brand, setbrands]=useState({
