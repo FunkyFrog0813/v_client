@@ -24,7 +24,7 @@ const AllBrand=()=>{
         setIsLoading(true)
         const fetchAllBrands = async()=>{
             try{
-                const res = await axios.get("http://localhost:8800/vbrandsbyid/"+page.currentPage)
+                const res = await axios.get("http://206.189.42.203/api/vbrandsbyid/"+page.currentPage)
                 setbrands(res.data)
                 console.log(res.data)
                 setIsLoading(false)
@@ -39,7 +39,7 @@ const AllBrand=()=>{
     useEffect(()=>{
         const fetchCounts = async()=>{
             try{
-                const res = await axios.get("http://localhost:8800/vbrandsbyid")
+                const res = await axios.get("http://206.189.42.203/api/vbrandsbyid")
                 setPage((prev) => ({...prev, totalPages:res.data}))
                 console.log(res.data)
             
@@ -54,7 +54,7 @@ const AllBrand=()=>{
         var r= window.confirm("确认删除该品牌？") 
         if (r===true){
         try {
-            await axios.delete("http://localhost:8800/veeseesbrands/"+id)
+            await axios.delete("http://206.189.42.203/api/veeseesbrands/"+id)
             window.location.reload()
         } catch (err) {
             console.log(err)
@@ -64,7 +64,7 @@ const AllBrand=()=>{
 
     const handleClick= async e=>{
         try {
-            const res = await axios.get("http://localhost:8800/vbrandsbyid/"+page.pageNum)
+            const res = await axios.get("http://206.189.42.203/api/vbrandsbyid/"+page.pageNum)
             setbrands(res.data)
             page.currentPage=page.pageNum
             console.log(res.data)

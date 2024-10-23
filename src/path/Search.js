@@ -33,7 +33,7 @@ const Search=()=>{
  const handleIDSearch = async e=>{
         e.preventDefault()
         try {
-            const res= await axios.get("http://localhost:8800/veeseesbrandsid/"+brand.brandId)
+            const res= await axios.get("http://206.189.42.203/api/veeseesbrandsid/"+brand.brandId)
             console.log(res.data)
             setbrands(prevState => {
                 return {...prevState, brands:res.data};
@@ -47,7 +47,7 @@ const Search=()=>{
     const handleNameSearch = async e=>{
         e.preventDefault()
         try {
-            const res= await axios.get("http://localhost:8800/veeseesbrandsname/"+ brand.brandName)
+            const res= await axios.get("http://206.189.42.203/api/veeseesbrandsname/"+ brand.brandName)
             console.log(res.data)
             setbrands(prevState => {
                 return {...prevState, brands:res.data};

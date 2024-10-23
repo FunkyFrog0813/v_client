@@ -203,7 +203,7 @@ const handleChange=(e)=>{
 const handleClick= async e=>{
     e.preventDefault()
     try {
-        const res = await axios.post("http://localhost:8800/veeseesbrands", brand)
+        const res = await axios.post("http://206.189.42.203/api/veeseesbrands", brand)
         const newID = res.data.insertId
         alert("品牌创建成功")
         navigate("/update/"+newID);

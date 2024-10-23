@@ -208,7 +208,7 @@ const brandID=location.pathname.split("/")[2]
         if(!state){
             console.log("hi")
             try {
-                const res= await axios.get("http://localhost:8800/veeseesbrandsid/"+brandID)
+                const res= await axios.get("http://206.189.42.203/api/veeseesbrandsid/"+brandID)
                 console.log(res.data)
                 setBrand(prevState => {
                     return {...prevState, brand_id:res.data[0].id,
@@ -236,11 +236,11 @@ const brandID=location.pathname.split("/")[2]
 
         const fetchBrandKeywords = async()=>{
             try{
-                const res1 = await axios.get("http://localhost:8800/vbrandskeywords/"+brandID)
+                const res1 = await axios.get("http://206.189.42.203/api/vbrandskeywords/"+brandID)
                 setBrand(prevState => {
                     return {...prevState, keywords:res1.data};
                   })
-                const res2 = await axios.get("http://localhost:8800/vbrandswebistes/"+brandID)
+                const res2 = await axios.get("http://206.189.42.203/api/vbrandswebistes/"+brandID)
                 setBrand(prevState => {
                     // Object.assign would also work
                     return {...prevState, websites:res2.data};
@@ -264,8 +264,8 @@ const handleChange=(e)=>{
 const handleClick= async e=>{
     e.preventDefault()
     try {
-        await axios.put("http://localhost:8800/veeseesbrands/"+brandID, brand)
-        window.open("http://localhost:3000/")
+        await axios.put("http://206.189.42.203/api/veeseesbrands/"+brandID, brand)
+        window.open("http://206.189.42.203/")
         alert("品牌更新成功");
     } catch (error) {
         return(error)
@@ -297,7 +297,7 @@ const handleKeywordDelete = async (id)=>{
     var r= window.confirm("确认删除该关键词？") 
     if (r===true){
     try {
-        await axios.delete("http://localhost:8800/veeseesbrandskeyword/"+id)
+        await axios.delete("http://206.189.42.203/api/veeseesbrandskeyword/"+id)
         alert("品牌关键词删除成功");
         window.location.reload()
     } catch (err) {
@@ -311,7 +311,7 @@ const handleWebsiteDelete = async (id)=>{
     var r= window.confirm("确认删除该网站？") 
     if (r===true){
     try {
-        await axios.delete("http://localhost:8800/veeseesbrandswebsite/"+id)
+        await axios.delete("http://206.189.42.203/api/veeseesbrandswebsite/"+id)
         alert("品牌网站删除成功");
         window.location.reload()
     } catch (err) {
@@ -325,7 +325,7 @@ const handleWebsiteDelete = async (id)=>{
 const handleKeywordClick= async e=>{
     e.preventDefault()
     try {
-        await axios.post("http://localhost:8800/veeseesbrandskeyword/", brand)
+        await axios.post("http://206.189.42.203/api/veeseesbrandskeyword/", brand)
         alert("品牌关键词新增成功");
         window.location.reload()
     } catch (error) {
@@ -337,7 +337,7 @@ const handleKeywordClick= async e=>{
 const handleWebsiteClick= async e=>{
     e.preventDefault()
     try {
-        await axios.post("http://localhost:8800/veeseesbrandswebsite/", brand)
+        await axios.post("http://206.189.42.203/api/veeseesbrandswebsite/", brand)
         alert("品牌网站新增成功");
         window.location.reload()
     } catch (error) {
