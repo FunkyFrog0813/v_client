@@ -223,7 +223,6 @@ return(
         <Grid size={12}> <TextField placeholder='公司名称' label="公司名称" onChange={handleChange} name="company_name" value={brand.company_name}></TextField>  </Grid>
         <Grid size={12}><TextField placeholder='投资背景' label="投资背景" onChange={handleChange} name="investor" value={brand.investor}></TextField>   </Grid>
         <Grid size={12}> <TextField placeholder='城市' label="城市" onChange={handleChange} name="city" value={brand.city}></TextField>   </Grid>
-        <Grid size={12}> <TextField placeholder='所属品类' label="所属品类" onChange={handleChange} name="brand_cate_id" value={brand.brand_cate_id}></TextField>  </Grid>
        
         <Grid size={12}>
       <FormControl sx={{ width: '20%' }}>
