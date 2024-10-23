@@ -1,6 +1,17 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import { Link } from 'react-router-dom'
+import Button from '@mui/material/Button';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid2';
+
 
 const Search=()=>{
     const [brand, setbrands]=useState({
@@ -50,45 +61,62 @@ const Search=()=>{
 
 
 return( <div>
-    <div>Search Brands</div>
+    <div><h1>品牌搜索</h1></div>
     <div className='brands'>
 
 
-    <table style={{width:"100%"}}>
-        <tr ><text>Brand  <input type='text' placeholder='brandId'onChange={handleIdChange} name="brandId" value={brand.brandId}></input></text>   
-        <button className='formButton' onClick={handleIDSearch}>Search Brand</button> </tr>
+    <Grid container spacing={2}> 
+    <Grid size={3} >  </Grid > 
+    <Grid size={5} > <TextField  fullWidth id="standard-basic" label="输入品牌ID" variant="standard" type='text' onChange={handleIdChange} name="brandId" value={brand.brandId}></TextField> </Grid >
+    <Grid size={4} style={{textAlign:"left" }} > <Button  variant="outlined" onClick={handleIDSearch}>搜索品牌</Button >  </Grid >
         
+   
+    <Grid size={3} >  </Grid > 
+    <Grid size={5} >   <TextField type='text' fullWidth  variant="standard"  label="输入品牌名" onChange={handleNameChange} name="brandName" value={brand.brandName}></TextField>  </Grid >
+    <Grid size={4} style={{textAlign:"left" }} >  <Button variant="outlined" onClick={handleNameSearch}>搜索品牌</Button></Grid >
+        </Grid > 
 
-       
-        <tr > <text>Brand  <input type='text' placeholder='brandName'onChange={handleNameChange} name="brandName" value={brand.brandName}></input></text>   
-        <button className='formButton' onClick={handleNameSearch}>Search Brand</button></tr>
-        </table>
+        <Grid style={{padding:"20px"}}>
+        </Grid>
 
-        <table style={{width:"100%"}}>
-    <tr>
-                 <th>id</th>
-                 <th>brand_name</th>
-                 <th>company_name</th>
-                 <th>investor</th>
-                 <th>city</th>
-                 <th>brand_cate_id</th>
+        <TableContainer component={Paper}  >
+        <Table  sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+        {brand.brands.length>0 && <TableHead>
+    <TableRow style={{backgroundColor:"#dbe0e6" }}>
+                 <TableCell >品牌id</TableCell >
+                 <TableCell >品牌名称</TableCell >
+                 <TableCell >公司名</TableCell >
+                 <TableCell >投资背景</TableCell >
+                 <TableCell >城市</TableCell >
+                 <TableCell >所属分类</TableCell >
+                 <TableCell >更新</TableCell >
                  
-                </tr>
+                </TableRow>
+                </TableHead>}
+                
+                <TableBody>
         {brand.brands.length>0 && brand.brands.map(brand=>(
-                <tr className='brand' key={brand.id}>
-                 <td>{brand.id}</td>
-                 <td>{brand.brand_name}</td>
-                 <td>{brand.company_name}</td>
-                 <td>{brand.investor}</td>
-                 <td>{brand.city}</td>
-                 <td>{brand.brand_cate_id}</td>
-                 <td><button className='update'><Link to={`/update/${brand.id}`} state={brand}>Update</Link></button></td>
-                </tr>
+                <TableRow className='brand' key={brand.id}>
+                 <TableCell>{brand.id}</TableCell>
+                 <TableCell>{brand.brand_name}</TableCell>
+                 <TableCell>{brand.company_name}</TableCell>
+                 <TableCell>{brand.investor}</TableCell>
+                 <TableCell>{brand.city}</TableCell>
+                 <TableCell>{brand.brand_cate_id}</TableCell>
+                 <TableCell><Button variant="outlined"  className='update'><Link to={`/update/${brand.id}`} state={brand}>更新品牌</Link></Button></TableCell>
+                </TableRow>
               
         ))}
-          <button className='allbrands'><Link to={"/allbrands"}>all brands</Link></button>
-        </table>
-        <button className='add'><Link to={"/add"}>Add</Link></button>
+        </TableBody>
+        
+        </Table>
+        </TableContainer>
+        
+        <Grid style={{padding:"20px"}}>
+        </Grid>
+
+        <Button className='allbrands'><Link to={"/allbrands"}>所有品牌</Link></Button>
+        <Button className='add'><Link to={"/add"}>新增品牌</Link></Button>
     </div>
     <pagination title={"yo"} />
     </div>
