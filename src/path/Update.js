@@ -327,7 +327,6 @@ const handleKeywordClick= async e=>{
     try {
         await axios.post("http://206.189.42.203/api/veeseesbrandskeyword/", brand)
         alert("品牌关键词新增成功");
-        window.location.reload()
     } catch (error) {
         return(error)
         

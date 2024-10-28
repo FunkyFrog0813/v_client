@@ -113,7 +113,7 @@ return( <div>
                  <TableCell>{brand.city}</TableCell>
                  <TableCell>{brand.brand_cate_id}</TableCell>
                  <TableCell><Button className='delete' onClick={()=>handleDelete(brand.id)} >删除品牌</Button></TableCell>
-                 <TableCell><Button className='update'><Link to={`/update/${brand.id}`} state={brand}>更新品牌</Link></Button></TableCell>
+                 <TableCell><Button className='update'><Link to={`/*/update/${brand.id}`} state={brand}>更新品牌</Link></Button></TableCell>
                 </TableRow>
               
         ))}

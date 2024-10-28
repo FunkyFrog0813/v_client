@@ -14,9 +14,9 @@ function App() {
       <BrowserRouter>
       <Routes>
       <Route path="/" element={<Search/>}/>
-        <Route path="/allbrands" element={<AllBrand/>}/>
-        <Route path="/add" element={<Add/>}/>
-        <Route path="/update/:id" element={<Update/>}/>
+        <Route path="/*/allbrands" element={<AllBrand/>}/>
+        <Route path="/*/add" element={<Add/>}/>
+        <Route path="/*/update/:id" element={<Update/>}/>
       </Routes>
       </BrowserRouter>
     </div>
