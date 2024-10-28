@@ -231,7 +231,7 @@ return(
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={brand.brand_cate_id}
-          
+          name="brand_cate_id" 
           label="所属品类"
           onChange={handleChange}
         >
