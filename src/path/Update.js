@@ -335,6 +335,12 @@ const handleKeywordClick= async e=>{
 
 const handleWebsiteClick= async e=>{
     e.preventDefault()
+    console.log(brand.Newwebsites.substring(0,3))
+     if (brand.Newwebsites.substring(0,4)==="http"){
+
+        alert("品牌网站格式错误,请不要使用http开头的网址\n正确的网址格式：baidu.com\n错误的网址格式：https://baidu.com");
+     }
+     else{
     try {
         await axios.post("http://206.189.42.203/api/veeseesbrandswebsite/", brand)
         alert("品牌网站新增成功");
@@ -343,6 +349,7 @@ const handleWebsiteClick= async e=>{
         return(error)
         
     }
+}
 }
 
 
