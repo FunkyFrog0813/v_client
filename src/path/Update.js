@@ -336,9 +336,9 @@ const handleKeywordClick= async e=>{
 const handleWebsiteClick= async e=>{
     e.preventDefault()
     console.log(brand.Newwebsites.substring(0,3))
-     if (brand.Newwebsites.substring(0,4)==="http"){
+     if (brand.Newwebsites.substring(0,4)==="http" || brand.Newwebsites.substring(0,3)==="www"){
 
-        alert("品牌网站格式错误,请不要使用http开头的网址\n正确的网址格式：baidu.com\n错误的网址格式：https://baidu.com");
+        alert("品牌网站格式错误,请不要使用http或www开头的网址\n正确的网址格式：baidu.com\n错误的网址格式：www.baidu.com\n错误的网址格式：https://baidu.com");
      }
      else{
     try {
